@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"frontend-nos/src/routes"
+	"frontend-nos/src/router"
 	"log"
 	"net/http"
 )
@@ -10,7 +10,7 @@ import (
 func main() {
 	fmt.Println("Running frontend-nos")
 
-	r := routes.Routes()
+	r := router.Router()
 
 	log.Fatal(http.ListenAndServe(":3000", r))
 }
