@@ -1,7 +1,10 @@
 package controller_login
 
-import "net/http"
+import (
+	"frontend-nos/src/utils"
+	"net/http"
+)
 
 func LoadScreenLogin(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Tela de Login"))
+	utils.ExecTemplate(w, "login.html", nil)
 }
