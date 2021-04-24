@@ -12,7 +12,7 @@
 <body>
     <div class="container-login">
         <div>
-            <form action="" class="nos-form" id="register">
+            <form action="" class="nos-form" id="formulario-registro">
                 <span>Crie sua conta</span>
                 <div>
                     <input type="text" name="name" id="name" placeholder="Digite o seu nome" required="required">
@@ -24,12 +24,12 @@
                     <input type="text" name="nick" id="nick" placeholder="Digite o seu nick" required="required">
                 </div>
                 <div>
-                    <input type="text" name="password" id="password" placeholder="Digite a sua senha"
+                    <input type="password" name="password" id="password" placeholder="Digite a sua senha"
                         required="required">
                 </div>
                 <div>
-                    <input type="text" name="confirm-password" id="confirm-password" placeholder="Confirme a sua senha"
-                        required="required">
+                    <input type="password" name="confirm-password" id="confirm-password"
+                        placeholder="Confirme a sua senha" required="required">
                 </div>
                 <a href="/login" class="a-redirect"
                     style="display: flex; place-content: center; margin-bottom: 1em;">Clique
@@ -38,6 +38,8 @@
             </form>
         </div>
     </div>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/register.js"></script>
 </body>
 
 </html>
