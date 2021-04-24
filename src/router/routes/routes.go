@@ -20,5 +20,11 @@ func Configure(router *mux.Router) *mux.Router {
 		router.HandleFunc(route.URI, route.Function).Methods(route.Method)
 	}
 
+	// configure folder "assets" but could there is more folders, could be well more
+	fileServer := http.FileServer(http.Dir("./assets/"))
+
+	// configure prefix to that doesn't have that go back folders using ".." no html
+	router.PathPrefix("/assets/").Handler(http.StripPrefix("/assets/", fileServer))
+
 	return router
 }
