@@ -1,3 +1,87 @@
-span {
-    color: grey;
+* {
+    margin: 0em;
+    padding: 0em;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+};
+
+a.a-redirect {
+    font-size: 16px;
+    color: #3b5998;
+    line-height: 1.4;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+    border: none;
+    color: #3b5998;
+    line-height: 1.2;
+    font-size: 1em;
+    display: block;
+    width: 100%;
+    background: transparent;
+    height: 4em;
+    padding: 0 20px 0 38px;
+}
+
+input::placeholder {
+    color: #8f8fa1;
+}
+
+.container-login {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.container-login > div {
+    width: 25em;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    padding: 50px 0 90px 0;
+}
+
+.nos-form > span {
+    font-size: 30px;
+    color: #3b5998;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-bottom: 30px;   
+}
+
+.nos-form> div {
+    width: 100%;
+    position: relative;
+    background-color: #e6e6e6;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin-bottom: 1em;
+}
+
+.btn-nos {
+    font-size: 1.2em;
+    color: #fff;
+    line-height: 1.2;
+    padding: 0 20px;
+    width: 100%;
+    height: 3em;
+    background-color: #C8D131;
+    outline: none;
+    border: none
+}
+
+.btn-nos:hover{
+    cursor: pointer;
 }

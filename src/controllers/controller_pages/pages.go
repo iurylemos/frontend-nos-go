@@ -1,4 +1,4 @@
-package controller_login
+package controller_pages
 
 import (
 	"frontend-nos/src/utils"
@@ -7,4 +7,8 @@ import (
 
 func LoadScreenLogin(w http.ResponseWriter, r *http.Request) {
 	utils.ExecTemplate(w, "login.html", nil)
+}
+
+func LoadScreenRegister(w http.ResponseWriter, r *http.Request) {
+	utils.ExecTemplate(w, "register.html", nil)
 }
