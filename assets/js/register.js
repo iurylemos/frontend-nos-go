@@ -18,5 +18,13 @@ function createUser(event) {
             nick: $('#nick').val(),
             senha: $('#password').val(),
         }
+
+    }).done(() => { // 201 (Created) 200 (OK) 204 (No Content)
+        alert("Usuário cadastrado com sucesso!")
+    }).fail((error) => { // 400 404 401 403 500
+        console.log(error)
+        alert("Error ao cadastrar o usuário!", error)
     });
+
+
 }
