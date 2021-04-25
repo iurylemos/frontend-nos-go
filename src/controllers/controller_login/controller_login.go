@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"frontend-nos/src/config"
+	"frontend-nos/src/cookies"
 	"frontend-nos/src/models"
 	"frontend-nos/src/utils"
 	"net/http"
@@ -47,6 +48,11 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	if erro = json.NewDecoder(response.Body).Decode(&dataAuth); erro != nil {
 		utils.ResponseJSON(w, http.StatusBadRequest, utils.ErrorAPI{Erro: erro.Error()})
+		return
+	}
+
+	if erro = cookies.SaveCookie(w, dataAuth.ID, dataAuth.Token); erro != nil {
+		utils.ResponseJSON(w, http.StatusUnprocessableEntity, erro)
 		return
 	}
 
