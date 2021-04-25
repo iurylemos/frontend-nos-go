@@ -38,3 +38,21 @@ func SaveCookie(w http.ResponseWriter, ID, token string) error {
 
 	return nil
 }
+
+func ReadCookies(r *http.Request) (map[string]string, error) {
+	cookie, erro := r.Cookie("dados")
+
+	if erro != nil {
+		return nil, erro
+	}
+
+	// allocating a "map" empty in memory and attributing this for the values variable
+	values := make(map[string]string)
+
+	// decoding cookies in attributing in variable values
+	if erro = s.Decode("dados", cookie.Value, &values); erro != nil {
+		return nil, erro
+	}
+
+	return values, nil
+}

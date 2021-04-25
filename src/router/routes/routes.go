@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"frontend-nos/src/middlewares"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -21,7 +22,18 @@ func Configure(router *mux.Router) *mux.Router {
 	routes = append(routes, routeMain)
 
 	for _, route := range routes {
-		router.HandleFunc(route.URI, route.Function).Methods(route.Method)
+
+		if route.RequiredAuthentication {
+			router.HandleFunc(route.URI,
+				middlewares.Logger(
+					middlewares.Autheticate(route.Function))).
+				Methods(route.Method)
+		} else {
+			router.HandleFunc(route.URI,
+				middlewares.Logger(route.Function)).
+				Methods(route.Method)
+		}
+
 	}
 
 	// configure folder "assets" but could there is more folders, could be well more
