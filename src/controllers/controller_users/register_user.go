@@ -3,6 +3,8 @@ package controller_users
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
+	"frontend-nos/src/config"
 	"frontend-nos/src/utils"
 	"net/http"
 )
@@ -26,8 +28,9 @@ func RegisterUser(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// fmt.Println("Usuário", bytes.NewBuffer(user))
+	url := fmt.Sprintf("%s/usuarios", config.API_URL)
 
-	response, erro := http.Post("http://localhost:5000/usuarios", "application/json", bytes.NewBuffer(user))
+	response, erro := http.Post(url, "application/json", bytes.NewBuffer(user))
 
 	if erro != nil {
 		utils.ResponseJSON(w, http.StatusInternalServerError, utils.ErrorAPI{Erro: erro.Error()})
