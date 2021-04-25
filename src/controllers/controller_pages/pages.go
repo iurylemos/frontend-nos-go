@@ -12,3 +12,7 @@ func LoadScreenLogin(w http.ResponseWriter, r *http.Request) {
 func LoadScreenRegister(w http.ResponseWriter, r *http.Request) {
 	utils.ExecTemplate(w, "register.html", nil)
 }
+
+func LoadScreenMain(w http.ResponseWriter, r *http.Request) {
+	utils.ExecTemplate(w, "home.html", nil)
+}
