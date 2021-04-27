@@ -1,6 +1,8 @@
 package controller_pages
 
 import (
+	"fmt"
+	"frontend-nos/src/config"
 	"frontend-nos/src/utils"
 	"net/http"
 )
@@ -14,5 +16,11 @@ func LoadScreenRegister(w http.ResponseWriter, r *http.Request) {
 }
 
 func LoadScreenMain(w http.ResponseWriter, r *http.Request) {
+	url := fmt.Sprintf("%s/publicacoes", config.API_URL)
+
+	response, erro := utils.MakeRequestWithAuthetication(r, http.MethodGet, url, nil)
+
+	fmt.Println("Entrou aqui?", response.StatusCode, erro)
+
 	utils.ExecTemplate(w, "home.html", nil)
 }
